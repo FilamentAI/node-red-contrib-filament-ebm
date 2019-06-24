@@ -12,7 +12,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/FilamentAI/node-red-contrib-filament-ebm.git"
     },
     "keywords": [
         "node-red"
