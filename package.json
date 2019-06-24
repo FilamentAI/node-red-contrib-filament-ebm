@@ -1,6 +1,6 @@
 {
     "name": "node-red-contrib-filament-ebm",
-    "description": "",
+    "description": "Allows messages to be sent to the Filament AI Enterprise Bot Manager platform.",
     "main": "ebm.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
