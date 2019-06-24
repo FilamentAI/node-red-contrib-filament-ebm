@@ -1,0 +1,28 @@
+{
+    "name": "node-red-contrib-filament-ebm",
+    "description": "",
+    "main": "ebm.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": {
+        "name": "Andy Feltham",
+        "email": "andy.feltham@filament.ai"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "keywords": [
+        "node-red"
+    ],
+    "dependencies": {
+        "axios": "*"
+    },
+    "node-red": {
+        "nodes": {
+            "ebm": "ebm.js"
+        }
+    }
+}

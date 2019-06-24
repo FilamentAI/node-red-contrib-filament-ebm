@@ -1,0 +1,71 @@
+<script type="text/javascript">
+    RED.nodes.registerType('ebm', {
+        category: 'filament',
+        color: '#e2e7ee',
+        defaults: {
+            name: { value: "" }, 
+            server: { value: "", type: "ebm-instance" },
+            newSession: { value: false }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "ebm-logo.png",
+        paletteLabel: "EBM",
+        label: function() {
+            this.ebm = RED.nodes.node(this.server);
+            return this.name || this.ebm.name || "ebm";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="ebm">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <h5>EBM Properties</h5>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-server"></i> Server</label>
+        <input type="text" id="node-input-server" placeholder="EBM Instance">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-user"></i> New Session?</label>
+        <input type="checkbox" id="node-input-newSession" placeholder="No.">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ebm">
+    <p>This node allows for messages to be sent to the <b>Filament Enterprise Bot Manager</b> platform.</p>
+    <h3>Inputs</h3>
+    <p>The <code>msg.payload</code> property will be passed to EBM as the <code>message</code> property required by the <code>/api/chat/query</code> API endpoint.</p>
+    <p>Optionally a <code>msg.ebm</code> property can be set to override the various parameters in the outgoing request, such as <code>bot_id</code>, <code>provider_id</code> or <code>session_id</code>.
+    <h3>Outputs</h3>
+    <p>The textual response from EBM will be returned in <code>msg.payload</code> and the raw response from EBM will be set in <code>msg.ebm</code>.</p>
+    <p>For example, this is a sample response from EBM : 
+    <pre>
+msg = {
+    "_msgid":"f8e3bb98.5bf1d8",
+    "topic":"",
+    "payload":[
+        "Cool, thanks for letting me know.&nbsp;"
+    ],
+    "ebm":{
+        "bot_id":"86",
+        "provider_id":"75",
+        "session_id":"4d993ea0-6735-23e0-be84-6263c7396a93",
+        "user_query":"bad",
+        "nlu_response":"",
+        "bot_response":[
+            {"type":0,"speech":["Cool, thanks for letting me know.&nbsp;"]}
+        ],
+        "action":"asfasf",
+        "confidence":1,
+        "slot_completed":true,
+        "status":"understood",
+        "transfers":{}
+    }
+};</pre>
+    </p>
+</script>
